@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Panda</title>
+    <style>
+        @font-face {
+            font-family: sm-font-1;
+            src: url(PlaywriteDEGrund-VariableFont_wght.ttf);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #015C5C, #fad0c4 100%);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #timer {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .lvtxt {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 20px;
+            font-family: sm-font-1;
+            font-weight: 700;
+            color: black;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+
+        }
+
+        button:hover {
+            background-color: #ff3d2e;
+        }
+
+        iframe {
+            margin-top: 2rem;
+            border: none;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 300px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            #timer {
+                font-size: 1.5rem;
+            }
+
+            button {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+
+            .lvtxt {
+                font-size: 0.9rem;
+                margin: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            #timer {
+                font-size: 1.2rem;
+            }
+
+            button {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+
+            .lvtxt {
+                font-size: 0.8rem;
+                margin: 10px;
+                text-align: justify;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>With You 💖</h1>
+    <div id="timer"></div>
+    <button onclick="openMemory()">Something for you</button>
+
+    <script>
+        const startDate = new Date("2024-10-23T16:31:00");
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").textContent =
+                `${days} Days, ${hours} Hours, ${minutes} Minutes, ${seconds} Seconds`;
+        }
+        function openMemory() {
+            document.body.innerHTML = `
+                <h1>My Favorite Memory ❤️</h1>
+                <p class="lvtxt">Remember that day? It was exactly 4:31 PM. We were at SOD building entrance.. You were standing above two stairs and I was down. I was be like \"Tell..\" Then your bus came... You had a smile on your face... and the time you told me \"I love you too\". My heart melted. You went because your bus came, but I was standing there and staring at you. That moment... it was epic. I never expected someone would come into my life like this. I love you, darling. I love you until my last breath 💖</p>
+                <iframe src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <button onclick="location.reload()">Back</button>
+            `;
+        }
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+
+</html>
